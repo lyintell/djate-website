@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/industry-df345c88-a59e-426f-b6ab-9efa588635c4/styles.css">
+<script src="_ds/industry-df345c88-a59e-426f-b6ab-9efa588635c4/_ds_bundle.js"></script>
+<style>
+  :root{--color-accent:#0E7A43;--color-accent-100:#E4F0E9;--color-accent-200:#C8E1D3;--color-accent-300:#9FDCB8;--color-accent-400:#3E9C63;--color-accent-500:#0E7A43;--color-accent-600:#0A5F36;--color-accent-700:#0A4F2E;--color-accent-800:#084026;--color-accent-900:#05331f;--color-accent-2:#0E7A43;--color-accent-2-100:#E4F0E9;--color-accent-2-700:#0A4F2E;}
+  body{margin:0;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);}
+  a{color:var(--color-accent-700);text-decoration:none;} a:hover{color:var(--color-accent);}
+  /* Coins arrondis - UI plus approchable */
+  .btn{border-radius:10px !important;}
+  .blueprint{border-radius:16px !important;}
+  .card{border-radius:16px !important;}
+  .tag{border-radius:999px !important;}
+  .input{border-radius:10px !important;}
+  .blueprint img, main img{border-radius:9px;}
+  .corner{display:none !important;}
+  /* Grilles responsives mobile-first */
+  .dgrid{display:grid;gap:24px;grid-template-columns:1fr;}
+  .cols2,.cols3,.cols4{grid-template-columns:1fr;}
+  .btn{font-size:16px;}
+  .hgrid{display:grid;gap:1px;background:rgba(29,31,32,.12);border:1px solid rgba(29,31,32,.12);grid-template-columns:1fr;}
+  @media(min-width:600px){
+    .cols2,.cols3,.cols4{grid-template-columns:repeat(2,1fr);}
+    .hgrid.hc2,.hgrid.hc3{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(min-width:960px){
+    .cols3{grid-template-columns:repeat(3,1fr);}
+    .cols4{grid-template-columns:repeat(4,1fr);}
+    .hgrid.hc3{grid-template-columns:repeat(3,1fr);}
+  }
+</style>
+</helmet>
+<dc-import name="Nav" active="contact" hint-size="100%,72px"></dc-import>
+
+<main>
+  <!-- HEADER -->
+  <section style="max-width:1200px;margin:0 auto;padding:64px 24px 40px;">
+    <div style="font:600 14px var(--font-heading);letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent);margin-bottom:14px;">Contact</div>
+    <h1 style="font:600 clamp(34px,7vw,56px)/1 var(--font-heading);letter-spacing:-.02em;margin:0 0 18px;max-width:760px;text-wrap:balance;">Parlons de votre commerce</h1>
+    <p style="font-size:19px;line-height:1.55;color:var(--color-neutral-700,#3a3b3c);margin:0;max-width:640px;">Une question, une démonstration, un devis ? Écrivez-nous ou appelez-nous — nous répondons vite.</p>
+  </section>
+
+  <section style="max-width:1200px;margin:0 auto;padding:0 24px 72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:start;">
+    <!-- FORM -->
+    <div class="blueprint" style="position:relative;padding:32px 30px;background:#fff;">
+      <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+      <h2 style="font:600 28px var(--font-heading);margin:0 0 6px;">Envoyez-nous un message</h2>
+      <p style="font-size:15px;color:var(--color-neutral-600,#5d5d60);margin:0 0 24px;line-height:1.45;">Remplissez le formulaire : votre message s'ouvrira dans votre application e-mail, prêt à envoyer. Vous pouvez aussi nous écrire directement sur WhatsApp.</p>
+
+      <div class="field" style="margin-bottom:16px;">
+        <label>Nom</label>
+        <input class="input" type="text" placeholder="Votre nom" value="{{ nom }}" onInput="{{ onNom }}">
+      </div>
+      <div class="field" style="margin-bottom:16px;">
+        <label>Téléphone / WhatsApp</label>
+        <input class="input" type="tel" placeholder="+223 ..." value="{{ tel }}" onInput="{{ onTel }}">
+      </div>
+      <div class="field" style="margin-bottom:16px;">
+        <label>Email</label>
+        <input class="input" type="email" placeholder="vous@exemple.com" value="{{ email }}" onInput="{{ onEmail }}">
+      </div>
+      <div class="field" style="margin-bottom:24px;">
+        <label>Message</label>
+        <textarea class="input" rows="5" placeholder="Parlez-nous de votre commerce et de vos besoins..." style="resize:vertical;font-family:var(--font-body);" onInput="{{ onMsg }}">{{ msg }}</textarea>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:12px;">
+        <a href="{{ mailtoHref }}" class="btn btn-primary" style="font-size:16px;padding:12px 24px;">Envoyer par e-mail</a>
+        <a href="{{ waHref }}" target="_blank" rel="noopener" class="btn btn-secondary" style="font-size:16px;padding:12px 24px;display:inline-flex;align-items:center;gap:8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.16c-.24.68-1.42 1.31-1.96 1.36-.5.05-.98.24-3.3-.69-2.77-1.09-4.56-3.9-4.7-4.08-.14-.18-1.13-1.5-1.13-2.86 0-1.36.71-2.03.97-2.31.24-.26.53-.32.71-.32.18 0 .36 0 .51.01.16.01.39-.06.6.46.24.58.82 2 .89 2.14.07.14.12.31.02.49-.09.18-.14.29-.27.45-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.18.69-.8.87-1.08.18-.28.36-.23.6-.14.24.09 1.55.73 1.81.87.27.14.44.21.51.32.07.12.07.66-.17 1.34z"></path></svg>
+          WhatsApp
+        </a>
+      </div>
+      <p style="font-size:14px;color:var(--color-neutral-500,#9a9b9d);margin:18px 0 0;">Vos messages nous parviennent à djatepos@gmail.com.</p>
+    </div>
+
+    <!-- COORDS -->
+    <div style="display:flex;flex-direction:column;gap:24px;">
+      <div class="blueprint" style="position:relative;padding:28px 26px;background:#05331f;color:#fff;">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <div style="font:600 14px var(--font-heading);letter-spacing:.14em;text-transform:uppercase;color:#8FD3AC;margin-bottom:18px;">Coordonnées</div>
+        <div style="display:flex;flex-direction:column;gap:18px;">
+          <div>
+            <div style="font-size:14px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;">Appel &amp; WhatsApp</div>
+            <a href="tel:+22370724322" style="color:#fff;font:600 24px var(--font-heading);display:block;">+223 70 72 43 22</a>
+            <a href="tel:+22363280044" style="color:#fff;font:600 24px var(--font-heading);display:block;">+223 63 28 00 44</a>
+          </div>
+          <div>
+            <div style="font-size:14px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;">Email</div>
+            <a href="mailto:info@djatepos.app" style="color:#fff;font:600 18px var(--font-heading);">info@djatepos.app</a>
+          </div>
+          <div>
+            <div style="font-size:14px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;">Localisation</div>
+            <div style="font-size:17px;">Bamako, Mali</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="blueprint" style="position:relative;padding:26px 24px;background:#fff;">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <div style="font:600 20px var(--font-heading);margin-bottom:6px;">Suivez-nous</div>
+        <p style="font-size:15px;color:var(--color-neutral-600,#5d5d60);margin:0 0 16px;line-height:1.45;">Retrouvez Djaté POS sur les réseaux sociaux.</p>
+        <a href="https://facebook.com" target="_blank" rel="noopener" class="btn btn-secondary" style="display:inline-flex;align-items:center;gap:8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"></path></svg>
+          Facebook
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dc-import name="Footer" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { nom:'', tel:'', email:'', msg:'' };
+  renderVals(){
+    const s = this.state;
+    const lines = [
+      s.nom ? 'Nom : ' + s.nom : '',
+      s.tel ? 'Téléphone / WhatsApp : ' + s.tel : '',
+      s.email ? 'Email : ' + s.email : '',
+      '',
+      s.msg || '',
+    ].join('\n');
+    const subject = 'Demande via le site — ' + (s.nom || 'Djaté POS');
+    const mailtoHref = 'mailto:djatepos@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines);
+    const waText = 'Bonjour Djaté POS,\n' + lines;
+    const waHref = 'https://wa.me/22370724322?text=' + encodeURIComponent(waText);
+    return {
+      nom:s.nom, tel:s.tel, email:s.email, msg:s.msg,
+      mailtoHref, waHref,
+      onNom:(e)=>this.setState({nom:e.target.value}),
+      onTel:(e)=>this.setState({tel:e.target.value}),
+      onEmail:(e)=>this.setState({email:e.target.value}),
+      onMsg:(e)=>this.setState({msg:e.target.value}),
+    };
+  }
+}
+</script>
+</body>
+</html>

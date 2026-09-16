@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/industry-df345c88-a59e-426f-b6ab-9efa588635c4/styles.css">
+<script src="_ds/industry-df345c88-a59e-426f-b6ab-9efa588635c4/_ds_bundle.js"></script>
+<style>
+  :root{--color-accent:#0E7A43;--color-accent-100:#E4F0E9;--color-accent-200:#C8E1D3;--color-accent-300:#9FDCB8;--color-accent-400:#3E9C63;--color-accent-500:#0E7A43;--color-accent-600:#0A5F36;--color-accent-700:#0A4F2E;--color-accent-800:#084026;--color-accent-900:#05331f;--color-accent-2:#0E7A43;--color-accent-2-100:#E4F0E9;--color-accent-2-700:#0A4F2E;}
+  body{margin:0;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);}
+  a{color:var(--color-accent-700);text-decoration:none;} a:hover{color:var(--color-accent);}
+  /* Coins arrondis - UI plus approchable */
+  .btn{border-radius:10px !important;}
+  .blueprint{border-radius:16px !important;}
+  .card{border-radius:16px !important;}
+  .tag{border-radius:999px !important;}
+  .input{border-radius:10px !important;}
+  .blueprint img, main img{border-radius:9px;}
+  .corner{display:none !important;}
+  /* Grilles responsives mobile-first */
+  .dgrid{display:grid;gap:24px;grid-template-columns:1fr;}
+  .cols2,.cols3,.cols4{grid-template-columns:1fr;}
+  .btn{font-size:16px;}
+  .hgrid{display:grid;gap:1px;background:rgba(29,31,32,.12);border:1px solid rgba(29,31,32,.12);grid-template-columns:1fr;}
+  @media(min-width:600px){
+    .cols2,.cols3,.cols4{grid-template-columns:repeat(2,1fr);}
+    .hgrid.hc2,.hgrid.hc3{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(min-width:960px){
+    .cols3{grid-template-columns:repeat(3,1fr);}
+    .cols4{grid-template-columns:repeat(4,1fr);}
+    .hgrid.hc3{grid-template-columns:repeat(3,1fr);}
+  }
+</style>
+</helmet>
+<dc-import name="Nav" active="formations" hint-size="100%,72px"></dc-import>
+
+<main>
+  <!-- HEADER -->
+  <section style="max-width:1200px;margin:0 auto;padding:64px 24px 40px;">
+    <div style="font:600 14px var(--font-heading);letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent);margin-bottom:14px;">Formations</div>
+    <h1 style="font:600 clamp(34px,7vw,56px)/1 var(--font-heading);letter-spacing:-.02em;margin:0 0 18px;max-width:800px;text-wrap:balance;">Apprenez à utiliser Djaté POS</h1>
+    <p style="font-size:19px;line-height:1.55;color:var(--color-neutral-700,#3a3b3c);margin:0;max-width:680px;">Des vidéos courtes pour prendre en main l'application, étape par étape. Certaines sont en accès libre, d'autres sont réservées à nos clients.</p>
+  </section>
+
+  <!-- FREE VIDEOS -->
+  <section style="max-width:1200px;margin:0 auto;padding:16px 24px 8px;">
+    <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:8px;flex-wrap:wrap;">
+      <h2 style="font:600 clamp(28px,5vw,40px) var(--font-heading);letter-spacing:-.01em;margin:0;">Vidéos gratuites</h2>
+      <span class="tag tag-accent" style="align-self:center;">Accès libre</span>
+      <div style="flex:1;min-width:60px;height:1px;background:rgba(29,31,32,.16);"></div>
+    </div>
+    <p style="font-size:16px;color:var(--color-neutral-600,#5d5d60);margin:0 0 32px;max-width:640px;">Les vidéos seront ajoutées prochainement. Voici les sujets prévus.</p>
+    <div class="dgrid cols3">
+      <sc-for list="{{ free }}" as="v" hint-placeholder-count="3">
+        <div>
+          <div class="blueprint" style="position:relative;aspect-ratio:16/9;background:var(--color-accent-100);display:flex;align-items:center;justify-content:center;">
+            <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+            <span style="width:64px;height:64px;border-radius:50%;background:var(--color-accent);display:flex;align-items:center;justify-content:center;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+            </span>
+            <span style="position:absolute;left:10px;bottom:10px;font:600 12px var(--font-heading);letter-spacing:.06em;text-transform:uppercase;color:var(--color-accent-700);background:#fff;padding:3px 8px;">{{ v.dur }}</span>
+          </div>
+          <div style="font:600 19px var(--font-heading);margin-top:14px;line-height:1.15;">{{ v.title }}</div>
+          <div style="font-size:15px;color:var(--color-neutral-600,#5d5d60);margin-top:4px;line-height:1.4;">{{ v.body }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- CLIENT VIDEOS (locked) -->
+  <section style="max-width:1200px;margin:0 auto;padding:56px 24px 8px;">
+    <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:8px;flex-wrap:wrap;">
+      <h2 style="font:600 clamp(28px,5vw,40px) var(--font-heading);letter-spacing:-.01em;margin:0;">Formations clients</h2>
+      <span class="tag tag-outline" style="align-self:center;">Réservé aux clients</span>
+      <div style="flex:1;min-width:60px;height:1px;background:rgba(29,31,32,.16);"></div>
+    </div>
+    <p style="font-size:16px;color:var(--color-neutral-600,#5d5d60);margin:0 0 32px;max-width:640px;">Des formations approfondies, accessibles à nos clients. Contactez-nous pour y accéder.</p>
+    <div class="dgrid cols3">
+      <sc-for list="{{ locked }}" as="v" hint-placeholder-count="3">
+        <div>
+          <div class="blueprint" style="position:relative;aspect-ratio:16/9;background:var(--color-neutral-200,#e2e3e4);display:flex;align-items:center;justify-content:center;">
+            <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#5d5d60" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="0"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          </div>
+          <div style="font:600 19px var(--font-heading);margin-top:14px;line-height:1.15;">{{ v.title }}</div>
+          <div style="font-size:15px;color:var(--color-neutral-600,#5d5d60);margin-top:4px;line-height:1.4;">{{ v.body }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:#0E7A43;color:#fff;margin-top:56px;">
+    <div style="max-width:1200px;margin:0 auto;padding:48px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+      <div>
+        <div style="font:600 clamp(24px,4.5vw,32px) var(--font-heading);line-height:1.05;">Vous êtes déjà client ?</div>
+        <div style="font-size:17px;color:rgba(255,255,255,.85);margin-top:6px;">Contactez-nous pour accéder à toutes les formations.</div>
+      </div>
+      <a href="Contact.dc.html" class="btn" style="background:#fff;color:#0A4F2E;font-size:16px;padding:12px 24px;">Nous contacter</a>
+    </div>
+  </section>
+</main>
+
+<dc-import name="Footer" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals(){
+    return {
+      free:[
+        {dur:'À venir', title:'Premiers pas avec Djaté POS', body:'Découverte de l\u2019interface et première vente.'},
+        {dur:'À venir', title:'Enregistrer vos produits', body:'Créer votre catalogue et fixer les prix.'},
+        {dur:'À venir', title:'Encaisser & imprimer un reçu', body:'Le déroulé d\u2019une vente en caisse.'},
+      ],
+      locked:[
+        {title:'Gérer le stock et les inventaires', body:'Entrées, sorties et corrections d\u2019écarts.'},
+        {title:'Fournisseurs & bons de commande', body:'Réception, sortie et livraison.'},
+        {title:'Lire vos rapports et bénéfices', body:'Analyser vos ventes et vos marges.'},
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

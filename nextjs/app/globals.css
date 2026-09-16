@@ -1,0 +1,402 @@
+:root {
+  /* Brand palette (from the Djaté POS flyer / Industry design system) */
+  --bg: #f2f2f3;
+  --text: #1d1f20;
+  --accent: #0e7a43;
+  --accent-100: #e4f0e9;
+  --accent-200: #c8e1d3;
+  --accent-300: #9fdcb8;
+  --accent-400: #3e9c63;
+  --accent-500: #0e7a43;
+  --accent-600: #0a5f36;
+  --accent-700: #0a4f2e;
+  --accent-800: #084026;
+  --accent-900: #05331f;
+  --mint: #8fd3ac;
+  --dark: #05331f;
+  --neutral-500: #9a9b9d;
+  --neutral-600: #5d5d60;
+  --neutral-700: #3a3b3c;
+  --line: rgba(29, 31, 32, 0.12);
+  --line-strong: rgba(29, 31, 32, 0.16);
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body), system-ui, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent-700);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--accent);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: var(--accent-200);
+}
+
+/* ---------- Layout ---------- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding-block: 72px;
+}
+.section-tight {
+  padding-block: 56px;
+}
+
+.surface {
+  background: #fff;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.sec-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.rule {
+  flex: 1;
+  min-width: 60px;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.kicker {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.h1 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: clamp(40px, 8vw, 68px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: balance;
+}
+.h2 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: clamp(28px, 5vw, 40px);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.lead {
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--neutral-700);
+}
+
+/* ---------- Grids ---------- */
+.grid {
+  display: grid;
+  gap: 24px;
+}
+.cols2,
+.cols3,
+.cols4 {
+  grid-template-columns: 1fr;
+}
+@media (min-width: 600px) {
+  .cols2,
+  .cols3,
+  .cols4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 960px) {
+  .cols3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .cols4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Hairline grid used for the feature/benefit tables */
+.hgrid {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 600px) {
+  .hgrid.hc2,
+  .hgrid.hc3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 960px) {
+  .hgrid.hc3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.hcell {
+  background: #fff;
+  padding: 26px 24px;
+  transition: background 0.2s ease, transform 0.2s ease;
+  position: relative;
+  z-index: 0;
+}
+.hcell:hover {
+  background: var(--accent-100);
+  transform: translateY(-2px);
+  z-index: 1;
+}
+.hcell:hover svg {
+  transform: scale(1.12);
+}
+.hcell svg {
+  transition: transform 0.2s ease;
+}
+
+/* ---------- Card (blueprint) ---------- */
+.card {
+  background: #fff;
+  border: 1px solid rgba(29, 31, 32, 0.14);
+  border-radius: var(--radius);
+  padding: 32px 30px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(29, 31, 32, 0.12);
+  border-color: var(--accent-300);
+}
+.card-dark {
+  background: var(--dark);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.16);
+}
+.card-dark:hover {
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.15s ease, box-shadow 0.15s ease;
+  white-space: nowrap;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn:active {
+  transform: translateY(0);
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--accent-600);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(14, 122, 67, 0.32);
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--accent-700);
+  border-color: var(--accent);
+}
+.btn-secondary:hover {
+  background: var(--accent-100);
+  color: var(--accent-700);
+}
+.btn-light {
+  background: #fff;
+  color: var(--accent-700);
+}
+.btn-light:hover {
+  background: var(--accent-100);
+}
+.btn-block {
+  width: 100%;
+}
+
+/* ---------- Tag ---------- */
+.tag {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: var(--accent-100);
+  color: var(--accent-700);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+.tag-outline {
+  background: transparent;
+  color: var(--neutral-700);
+  border: 1px solid var(--line-strong);
+}
+
+/* ---------- Forms ---------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.field label {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 15px;
+}
+.input {
+  font-family: var(--font-body);
+  font-size: 16px;
+  padding: 11px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--text);
+}
+.input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-color: var(--accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Bands ---------- */
+.band-accent {
+  background: var(--accent);
+  color: #fff;
+}
+.band-dark {
+  background: var(--dark);
+  color: #fff;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  grid-template-columns: 1fr;
+}
+@media (min-width: 900px) {
+  .hero {
+    grid-template-columns: 0.85fr 1.35fr;
+    gap: 48px !important;
+  }
+}
+
+/* ---------- Play button (hero / videos) ---------- */
+.play-btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.play-btn:hover {
+  transform: scale(1.08);
+}
+
+/* ---------- Pulsating ring (WhatsApp) ---------- */
+.pulse-ring {
+  position: relative;
+}
+.pulse-ring::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid var(--mint);
+  animation: pulse-ring 2s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes pulse-ring {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pulse-ring::after {
+    animation: none;
+    display: none;
+  }
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,30 @@
+# Dependencies
+nextjs/node_modules
+
+# Next.js build output
+nextjs/.next
+nextjs/out
+nextjs/build
+
+# Env files
+nextjs/.env
+nextjs/.env.local
+nextjs/.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Vercel
+nextjs/.vercel
+
+# TypeScript
+nextjs/*.tsbuildinfo
+nextjs/next-env.d.ts
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
