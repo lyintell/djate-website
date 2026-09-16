@@ -17,17 +17,8 @@ export default function Nav() {
         borderBottom: "1px solid var(--line-strong)",
       }}
     >
-      <div
-        className="container"
-        style={{
-          padding: "12px 24px",
-          display: "flex",
-          alignItems: "center",
-          gap: 24,
-          flexWrap: "wrap",
-        }}
-      >
-        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, flex: "none" }}>
+      <div className="container nav-bar" style={{ padding: "12px 24px" }}>
+        <Link href="/" className="nav-brand" style={{ display: "flex", alignItems: "center", gap: 10 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/assets/djate-logo.png" alt="Djaté POS" style={{ height: 40, width: "auto" }} />
           <span
@@ -44,15 +35,7 @@ export default function Nav() {
           </span>
         </Link>
 
-        <nav
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 4,
-            flexWrap: "wrap",
-            marginLeft: "auto",
-          }}
-        >
+        <nav className="nav-links">
           {navLinks.map((l) => {
             const active = pathname === l.href;
             return (
@@ -88,7 +71,7 @@ export default function Nav() {
           })}
         </nav>
 
-        <Link href="/contact" className="btn btn-primary" style={{ flex: "none" }}>
+        <Link href="/contact" className="btn btn-primary nav-cta">
           Demander une démo
         </Link>
       </div>

@@ -75,5 +75,6 @@ export const navLinks = [
   { label: "Accueil", href: "/" },
   { label: "Fonctionnalités", href: "/fonctionnalites" },
   { label: "Vidéos", href: "/videos" },
+  { label: "Tarifs", href: "/#tarifs" },
   { label: "Contact", href: "/contact" },
 ];

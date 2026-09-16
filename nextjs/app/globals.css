@@ -334,6 +334,42 @@ img {
   color: #fff;
 }
 
+/* ---------- Nav ---------- */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.nav-brand {
+  flex: none;
+  order: 1;
+}
+.nav-cta {
+  flex: none;
+  order: 2;
+  margin-left: auto;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  order: 3;
+  flex-basis: 100%;
+}
+@media (min-width: 720px) {
+  .nav-links {
+    order: 2;
+    flex-basis: auto;
+    margin-left: auto;
+  }
+  .nav-cta {
+    order: 3;
+    margin-left: 0;
+  }
+}
+
 /* ---------- Hero ---------- */
 .hero {
   grid-template-columns: 1fr;

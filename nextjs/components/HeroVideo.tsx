@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Play, Pause } from "lucide-react";
+import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 
 export default function HeroVideo({
   src,
@@ -14,6 +14,7 @@ export default function HeroVideo({
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(true);
+  const [muted, setMuted] = useState(true);
 
   const toggle = () => {
     const el = videoRef.current;
@@ -25,6 +26,14 @@ export default function HeroVideo({
       el.pause();
       setPlaying(false);
     }
+  };
+
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const el = videoRef.current;
+    if (!el) return;
+    el.muted = !el.muted;
+    setMuted(el.muted);
   };
 
   return (
@@ -84,6 +93,28 @@ export default function HeroVideo({
         </span>
       </div>
       <button aria-label={playing ? `Mettre en pause — ${label}` : `Lire — ${label}`} onClick={toggle} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0, border: "none", cursor: "pointer" }} />
+      <button
+        aria-label={muted ? "Activer le son" : "Couper le son"}
+        onClick={toggleMute}
+        className="play-btn"
+        style={{
+          position: "absolute",
+          right: 12,
+          bottom: 12,
+          width: 38,
+          height: 38,
+          borderRadius: "50%",
+          border: "none",
+          background: "rgba(5,51,31,.7)",
+          color: "#fff",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          cursor: "pointer",
+        }}
+      >
+        {muted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+      </button>
     </div>
   );
 }

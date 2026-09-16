@@ -13,3 +13,7 @@ Ce dossier contient toute les inputs, comme suit:
 4. Dans contact, le formulaire envoi directement à info@djatepos.app. enleve Whatsapp button là bas. Ajoute l icone Whatsapp dans Coordonnées. Whats app seulement pour 70724322.
 
 5. Maintenant je veux lancer le siteweb en production, sur github page ou vercel. Donne moi les instructions. (VERSEL)
+
+6. Tout est setup sur versel, marche bien. Quelques issues:
+- La video n'a pas de son.
+- Ajoute Tarifs dans la nav. On clique, scroll to home Tarifs section. Tarifs apres videos avant Contact
