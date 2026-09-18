@@ -1,17 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { MessageCircle, Facebook } from "lucide-react";
+import { MessageCircle, Facebook, CheckCircle2 } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { contact } from "@/data/contact/contact";
 import Reveal from "@/components/Reveal";
 
 type Errors = Partial<Record<"nom" | "tel" | "email" | "msg", string>>;
+type Status = "idle" | "sending" | "sent" | "error";
 
 export default function Contact() {
   const [form, setForm] = useState({ nom: "", tel: "", email: "", msg: "" });
   const [errors, setErrors] = useState<Errors>({});
+  const [status, setStatus] = useState<Status>("idle");
 
   const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm({ ...form, [k]: e.target.value });
@@ -26,25 +28,25 @@ export default function Contact() {
     return next;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const next = validate();
     setErrors(next);
     if (Object.keys(next).length > 0) return;
 
-    const lines = [
-      `Nom : ${form.nom}`,
-      `Téléphone / WhatsApp : ${form.tel}`,
-      `Email : ${form.email}`,
-      "",
-      form.msg,
-    ].join("\n");
-
-    const mailto = `mailto:${contact.formTo}?subject=${encodeURIComponent(
-      `Demande via le site — ${form.nom}`
-    )}&body=${encodeURIComponent(lines)}`;
-
-    window.location.href = mailto;
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("send failed");
+      setStatus("sent");
+      setForm({ nom: "", tel: "", email: "", msg: "" });
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -90,8 +92,20 @@ export default function Contact() {
                 {errors.msg && <span style={fieldError}>{errors.msg}</span>}
               </div>
 
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
-                <button type="submit" className="btn btn-primary">Envoyer</button>
+              <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12 }}>
+                <button type="submit" className="btn btn-primary" disabled={status === "sending"}>
+                  {status === "sending" ? "Envoi..." : "Envoyer"}
+                </button>
+                {status === "sent" && (
+                  <span style={{ display: "flex", alignItems: "center", gap: 6, color: "var(--accent-700)", fontSize: 15, fontWeight: 600 }}>
+                    <CheckCircle2 size={18} /> Message envoyé ! Nous vous répondons vite.
+                  </span>
+                )}
+                {status === "error" && (
+                  <span style={{ color: "#c0392b", fontSize: 14 }}>
+                    Envoi impossible. Réessayez ou écrivez-nous à {contact.formTo}.
+                  </span>
+                )}
               </div>
             </form>
           </Reveal>
