@@ -7,10 +7,11 @@ export async function POST(req: Request) {
   const nom = typeof body?.nom === "string" ? body.nom.trim() : "";
   const tel = typeof body?.tel === "string" ? body.tel.trim() : "";
   const email = typeof body?.email === "string" ? body.email.trim() : "";
+  const objet = typeof body?.objet === "string" ? body.objet.trim() : "";
   const msg = typeof body?.msg === "string" ? body.msg.trim() : "";
 
   const wordCount = msg.split(/\s+/).filter(Boolean).length;
-  if (!nom || !tel || !email || wordCount < 3) {
+  if (!nom || !tel || !email || !objet || wordCount < 3) {
     return NextResponse.json({ error: "Champs invalides." }, { status: 400 });
   }
 
@@ -27,8 +28,8 @@ export async function POST(req: Request) {
       from: process.env.RESEND_FROM || "Djaté POS <onboarding@resend.dev>",
       to: contact.formTo,
       replyTo: email,
-      subject: `Demande via le site — ${nom}`,
-      text: [`Nom : ${nom}`, `Téléphone / WhatsApp : ${tel}`, `Email : ${email}`, "", msg].join("\n"),
+      subject: objet,
+      text: [`Nom : ${nom}`, `Téléphone / WhatsApp : ${tel}`, `Email : ${email}`, `Objet : ${objet}`, "", msg].join("\n"),
     });
 
     if (error) {

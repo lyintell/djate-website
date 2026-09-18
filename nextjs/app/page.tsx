@@ -211,7 +211,7 @@ export default function Home() {
             ))}
           </div>
           <p style={{ fontSize: 14, color: "var(--neutral-500)", marginTop: 18 }}>
-            Témoignages d&apos;exemple — à remplacer par vos vrais clients.
+            Témoignages à venir
           </p>
         </section>
 

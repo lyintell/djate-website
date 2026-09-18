@@ -7,11 +7,11 @@ import Footer from "@/components/Footer";
 import { contact } from "@/data/contact/contact";
 import Reveal from "@/components/Reveal";
 
-type Errors = Partial<Record<"nom" | "tel" | "email" | "msg", string>>;
+type Errors = Partial<Record<"nom" | "tel" | "email" | "objet" | "msg", string>>;
 type Status = "idle" | "sending" | "sent" | "error";
 
 export default function Contact() {
-  const [form, setForm] = useState({ nom: "", tel: "", email: "", msg: "" });
+  const [form, setForm] = useState({ nom: "", tel: "", email: "", objet: "", msg: "" });
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<Status>("idle");
 
@@ -23,6 +23,7 @@ export default function Contact() {
     if (!form.nom.trim()) next.nom = "Le nom est obligatoire.";
     if (!form.tel.trim()) next.tel = "Le téléphone est obligatoire.";
     if (!form.email.trim()) next.email = "L'email est obligatoire.";
+    if (!form.objet.trim()) next.objet = "L'objet est obligatoire.";
     const wordCount = form.msg.trim().split(/\s+/).filter(Boolean).length;
     if (wordCount < 3) next.msg = "Le message doit contenir au moins 3 mots.";
     return next;
@@ -43,7 +44,7 @@ export default function Contact() {
       });
       if (!res.ok) throw new Error("send failed");
       setStatus("sent");
-      setForm({ nom: "", tel: "", email: "", msg: "" });
+      setForm({ nom: "", tel: "", email: "", objet: "", msg: "" });
     } catch {
       setStatus("error");
     }
@@ -85,6 +86,11 @@ export default function Contact() {
                 <label htmlFor="email">Email *</label>
                 <input id="email" className="input" type="email" placeholder="vous@exemple.com" value={form.email} onChange={set("email")} />
                 {errors.email && <span style={fieldError}>{errors.email}</span>}
+              </div>
+              <div className="field">
+                <label htmlFor="objet">Objet *</label>
+                <input id="objet" className="input" type="text" placeholder="Sujet de votre message" value={form.objet} onChange={set("objet")} />
+                {errors.objet && <span style={fieldError}>{errors.objet}</span>}
               </div>
               <div className="field" style={{ marginBottom: 24 }}>
                 <label htmlFor="msg">Message *</label>

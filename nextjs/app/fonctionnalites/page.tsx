@@ -45,7 +45,7 @@ export default function Fonctionnalites() {
         <section className="container" style={{ padding: "72px 24px" }}>
           <SectionHead title="Captures d'écran" />
           <p style={{ fontSize: 16, color: "var(--neutral-600)", margin: "0 0 32px", maxWidth: 640 }}>
-            Un aperçu de l&apos;interface. Les captures définitives seront ajoutées prochainement.
+            À venir
           </p>
           <div className="grid cols2">
             {screenshots.map((s, i) => (
