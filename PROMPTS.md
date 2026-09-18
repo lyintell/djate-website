@@ -16,4 +16,7 @@ Ce dossier contient toute les inputs, comme suit:
 
 6. Tout est setup sur versel, marche bien. Quelques issues:
 - La video n'a pas de son.
-- Ajoute Tarifs dans la nav. On clique, scroll to home Tarifs section. Tarifs apres videos avant Contact
+- Ajoute Tarifs dans la nav. On clique, scroll to home Tarifs section. Tarifs apres videos avant Contact.
+- Sur mobile, Demander demo (Nav) doit etre sur la meme ligne que le titre Djate POS (a droite). Le reste des nav en bas comme actuel. Sur PC garde comme tel.
+
+7. Je vais enregistrer toutes les videos dans la section videos sur youtube. Il y aura des versions française et bambara. Update le code pour permettre de rattacher des videos youtubes sur le site (Section videos seulement). Utilise le même titre que Youtube. Si le titre contient Français / Bambara.
