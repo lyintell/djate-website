@@ -36,7 +36,7 @@ export function CtaBand({
           <div style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: "clamp(24px,4.5vw,32px)", lineHeight: 1.05 }}>
             {title}
           </div>
-          {subtitle && <div style={{ fontSize: 17, color: "rgba(255,255,255,.85)", marginTop: 6 }}>{subtitle}</div>}
+          {subtitle && <div style={{ fontSize: 19, color: "rgba(255,255,255,.85)", marginTop: 6 }}>{subtitle}</div>}
         </div>
         <Link href="/contact" className="btn btn-light">
           {buttonLabel}

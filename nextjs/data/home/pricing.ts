@@ -1,21 +1,27 @@
-/* ---------- Offers (feature lists) ---------- */
-export const offerFast = [
-  "Ventes & caisse rapide",
-  "Factures & pro formas",
-  "Clients & crédits",
-  "Gestion du stock",
-  "Changements de prix & promotions",
-  "Rapports essentiels",
+/* ---------- Purchase formulas ---------- */
+export const purchaseFormulas = [
+  {
+    kicker: "Formule clé en main",
+    title: "Tout inclus",
+    items: ["Terminal - Windows ou Android", "Logiciel", "Formation", "1 mois de suivi"],
+    fromPrice: "600 000",
+    dark: true,
+    href: "/nos-formules#cle-en-main",
+  },
+  {
+    kicker: "Formule logiciel",
+    title: "Logiciel + suivi",
+    items: ["Logiciel", "Formation", "1 mois de suivi"],
+    fromPrice: "300 000",
+    dark: false,
+    href: "/nos-formules#logiciel",
+  },
+  {
+    kicker: "Formule matériel",
+    title: "Terminal",
+    items: ["Windows ou Android", "Types variés de terminal"],
+    fromPrice: "350 000",
+    dark: false,
+    href: "/nos-formules#terminaux",
+  },
 ];
-export const offerPro = [
-  "Tout ce que contient l’offre Fast",
-  "Fournisseurs & commandes",
-  "Bons de stock : réception, sortie, livraison",
-  "Inventaire magasin",
-];
-
-/* ---------- Pricing (FCFA) ---------- */
-export const pricing = {
-  fast: { name: "Offre Fast", tagline: "L'essentiel pour vendre", solo: "300 000", full: "600 000" },
-  pro: { name: "Offre Pro", tagline: "La gestion complète", solo: "400 000", full: "700 000" },
-};

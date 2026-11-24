@@ -1,7 +1,4 @@
 import {
-  Zap,
-  Package,
-  Store,
   WifiOff,
   Users,
   BarChart3,
@@ -17,29 +14,62 @@ import {
   Tag,
   Truck,
   ClipboardCheck,
+  Package,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
+import { MaliFlag, PersonRunning } from "@/components/icons";
 
 export type Item = { icon: LucideIcon; title: string; body: string };
 
-/* ---------- Business types (hero band) ---------- */
+export type BenefitIcon = LucideIcon | typeof PersonRunning | typeof MaliFlag;
+
+export type Benefit = {
+  icons: BenefitIcon[];
+  title: string;
+  body: string;
+  competitor: string[];
+};
+
+/* ---------- Business types (home marquee) ---------- */
 export const businessTypes = [
-  "Boutiques",
-  "Alimentations",
   "Quincailleries",
+  "Boutiques",
   "Supermarchés",
-  "Commerce général",
   "Entreprises",
+  "Commerce général",
+  "Pharmacies",
 ];
 
-/* ---------- Home benefits ---------- */
-export const benefits: Item[] = [
-  { icon: Zap, title: "Vente rapide en caisse", body: "Encaissez et imprimez le reçu en quelques secondes." },
-  { icon: Package, title: "Suivi du stock en temps réel", body: "Sachez toujours ce qu’il vous reste." },
-  { icon: Store, title: "Plusieurs magasins", body: "Gérez plusieurs magasins depuis un seul système." },
-  { icon: WifiOff, title: "Fonctionne sans internet", body: "Vendez à tout moment, même sans connexion." },
-  { icon: Users, title: "Clients & fournisseurs", body: "Suivez les situations de vos clients et fournisseurs." },
-  { icon: BarChart3, title: "Rapports & bénéfices clairs", body: "Voyez vos ventes et vos gains d’un coup d’œil." },
+/* ---------- Home benefits (Pourquoi Djaté) ---------- */
+export const benefits: Benefit[] = [
+  {
+    icons: [MaliFlag],
+    title: "Adaptés aux réalités maliennes",
+    body: "Conçu pour les commerces du Mali : FCFA, crédits clients, multi-magasins et usage quotidien simple.",
+    competitor: [
+      "Logiciels importés, pensés pour d'autres marchés",
+      "Interface complexe, peu adaptée au terrain",
+    ],
+  },
+  {
+    icons: [PersonRunning],
+    title: "Mise en service ultra rapide et support",
+    body: "Installation rapide, formation incluse et accompagnement local pour démarrer sans attendre.",
+    competitor: [
+      "Délais d'installation longs",
+      "Support distant, lent, coûteux ou inexistant",
+    ],
+  },
+  {
+    icons: [WifiOff],
+    title: "Fonctionne sans internet",
+    body: "Continuez à vendre, même sans connexion. Vos données se synchronisent dès que le réseau revient.",
+    competitor: [
+      "Dépendance totale à internet",
+      "Caisse bloquée dès qu'il n'y a plus de réseau",
+    ],
+  },
 ];
 
 /* ---------- Machine specs ---------- */
@@ -57,24 +87,24 @@ export const cloud: Item[] = [
   { icon: RefreshCw, title: "Synchronisé & sauvegardé", body: "Vos données à jour et en sécurité en permanence." },
 ];
 
-/* ---------- App features (Fonctionnalités page) ---------- */
+/* ---------- App features (Logiciel page) ---------- */
 export const features: Item[] = [
   { icon: ShoppingCart, title: "Ventes & caisse", body: "Encaissez vite, gérez les remises et imprimez le reçu instantanément." },
-  { icon: FileText, title: "Factures & pro formas", body: "Générez factures et pro formas propres et professionnelles." },
+  { icon: FileText, title: "Factures & pro formas", body: "Imprimez en format reçu 80 mm ou en facture A4, selon votre besoin." },
   { icon: Users, title: "Clients & crédits", body: "Fichier clients, suivi des crédits et des situations." },
-  { icon: Package, title: "Gestion du stock", body: "Entrées, sorties et niveaux de stock toujours à jour." },
-  { icon: Tag, title: "Prix & promotions", body: "Changez les prix et lancez des promotions en un instant." },
-  { icon: Truck, title: "Fournisseurs & commandes", body: "Fournisseurs, commandes et bons de stock (réception, sortie, livraison)." },
+  { icon: Package, title: "Catalogue produits et gestion de stock", body: "Catalogue produits, entrées, sorties et niveaux de stock en temps réel." },
+  { icon: Tag, title: "Changements de prix", body: "Mettez à jour vos prix pour refléter les fluctuations du marché et obtenir des rapports de bénéfices plus précis." },
+  { icon: Truck, title: "Fournisseurs & commandes", body: "Fournisseurs, commandes, bon de sortie, bon de livraison et bon de réception." },
   { icon: ClipboardCheck, title: "Inventaire magasin", body: "Faites vos inventaires et corrigez les écarts facilement." },
-  { icon: BarChart3, title: "Rapports & bénéfices", body: "Ventes, marges et bénéfices, clairs d’un coup d’œil." },
-  { icon: WifiOff, title: "Fonctionne hors ligne", body: "Continuez à vendre même sans connexion internet." },
+  { icon: BarChart3, title: "Rapports et bénéfices", body: "Suivez la performance des produits, triez selon les résultats, et séparez clairement bénéfices et chiffres d'affaires." },
+  { icon: Sparkles, title: "Pensé avec les commerçants", body: "Plusieurs fonctionnalités basées sur les requêtes de clients — un outil incontournable pour la gestion des ventes, du stock et de la caisse." },
 ];
 
 /* ---------- Navigation ---------- */
 export const navLinks = [
   { label: "Accueil", href: "/" },
-  { label: "Fonctionnalités", href: "/fonctionnalites" },
-  { label: "Vidéos", href: "/videos" },
-  { label: "Tarifs", href: "/#tarifs" },
+  { label: "Nos formules", href: "/nos-formules" },
+  { label: "Tarifs", href: "/tarifs" },
+  { label: "Vidéos de formation", href: "/videos" },
   { label: "Contact", href: "/contact" },
 ];

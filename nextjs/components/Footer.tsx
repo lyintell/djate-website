@@ -16,18 +16,18 @@ export default function Footer() {
         }}
       >
         <div style={{ maxWidth: 340 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14 }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/assets/djate-logo.png"
               alt="Djaté POS"
-              style={{ height: 40, width: "auto", filter: "brightness(0) invert(1)" }}
+              style={{ height: 56, width: "auto", filter: "brightness(0) invert(1)" }}
             />
-            <span style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 26, lineHeight: 1 }}>
+            <span style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 34, lineHeight: 1 }}>
               Djaté POS
             </span>
           </div>
-          <p style={{ fontSize: 15, lineHeight: 1.6, color: "rgba(255,255,255,.72)", margin: 0 }}>
+          <p style={{ fontSize: 17, lineHeight: 1.65, color: "rgba(255,255,255,.72)", margin: 0 }}>
             Système de point de vente et de gestion pour boutiques, alimentations, quincailleries et commerces généraux au Mali.
           </p>
           <div style={{ fontSize: 14, color: "rgba(255,255,255,.5)", marginTop: 16 }}>Par Ly Intell</div>
@@ -35,7 +35,7 @@ export default function Footer() {
 
         <div>
           <div style={colHead}>Navigation</div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 10, fontSize: 15 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 10, fontSize: 17 }}>
             {navLinks.map((l) => (
               <Link key={l.href} href={l.href} style={{ color: "rgba(255,255,255,.82)" }}>
                 {l.label}
@@ -46,7 +46,7 @@ export default function Footer() {
 
         <div>
           <div style={colHead}>Contact</div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 12, fontSize: 15, color: "rgba(255,255,255,.82)" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12, fontSize: 17, color: "rgba(255,255,255,.82)" }}>
             {contact.phones.map((p) => (
               <a key={p} href={`tel:${p.replace(/\s/g, "")}`} style={{ color: "#fff", fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 20 }}>
                 {p}
@@ -92,7 +92,7 @@ export default function Footer() {
 const colHead: React.CSSProperties = {
   fontFamily: "var(--font-heading)",
   fontWeight: 600,
-  fontSize: 15,
+  fontSize: 16,
   letterSpacing: ".12em",
   textTransform: "uppercase",
   color: "var(--mint)",

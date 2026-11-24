@@ -17,15 +17,15 @@ export default function Nav() {
         borderBottom: "1px solid var(--line-strong)",
       }}
     >
-      <div className="container nav-bar" style={{ padding: "12px 24px" }}>
-        <Link href="/" className="nav-brand" style={{ display: "flex", alignItems: "center", gap: 10 }}>
+      <div className="container nav-bar" style={{ padding: "14px 24px" }}>
+        <Link href="/" className="nav-brand" style={{ display: "flex", alignItems: "center", gap: 12 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/djate-logo.png" alt="Djaté POS" style={{ height: 40, width: "auto" }} />
+          <img src="/assets/djate-logo.png" alt="Djaté POS" style={{ height: 56, width: "auto" }} />
           <span
             style={{
               fontFamily: "var(--font-heading)",
               fontWeight: 600,
-              fontSize: 26,
+              fontSize: 34,
               letterSpacing: "-.01em",
               color: "var(--text)",
               lineHeight: 1,
@@ -46,7 +46,7 @@ export default function Nav() {
                   position: "relative",
                   fontFamily: "var(--font-heading)",
                   fontWeight: 600,
-                  fontSize: 17,
+                  fontSize: 18,
                   letterSpacing: ".03em",
                   textTransform: "uppercase",
                   color: "var(--text)",
@@ -71,7 +71,7 @@ export default function Nav() {
           })}
         </nav>
 
-        <Link href="/contact" className="btn btn-primary nav-cta">
+        <Link href="/contact" className="btn btn-primary nav-cta nav-cta-blink">
           Demander une démo
         </Link>
       </div>

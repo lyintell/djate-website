@@ -45,7 +45,8 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body), system-ui, sans-serif;
-  line-height: 1.5;
+  font-size: 18px;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -103,7 +104,7 @@ img {
 .kicker {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
@@ -112,7 +113,7 @@ img {
 .h1 {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: clamp(40px, 8vw, 68px);
+  font-size: clamp(44px, 8vw, 72px);
   line-height: 1;
   letter-spacing: -0.02em;
   margin: 0;
@@ -121,15 +122,15 @@ img {
 .h2 {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: clamp(28px, 5vw, 40px);
-  line-height: 1.02;
+  font-size: clamp(32px, 5vw, 44px);
+  line-height: 1.05;
   letter-spacing: -0.01em;
   margin: 0;
 }
 
 .lead {
-  font-size: 19px;
-  line-height: 1.55;
+  font-size: 22px;
+  line-height: 1.6;
   color: var(--neutral-700);
 }
 
@@ -199,6 +200,67 @@ img {
   transition: transform 0.2s ease;
 }
 
+/* Pourquoi Djaté — equal card alignment */
+.why-grid > * {
+  min-height: 100%;
+}
+.why-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  height: 100%;
+}
+.why-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.why-card-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 28px;
+}
+.why-card-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 1.2;
+  min-height: calc(1.2em * 2);
+}
+.why-card-body {
+  font-size: 19px;
+  color: var(--neutral-600);
+  line-height: 1.5;
+  min-height: calc(1.5em * 3);
+}
+.why-card-competitor {
+  margin-top: auto;
+  padding: 16px;
+  border-radius: 10px;
+  background: #e8e8ea;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 140px;
+}
+.why-card-competitor-label {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--neutral-600);
+  margin-bottom: 2px;
+}
+.why-card-competitor-line {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #6b6c6e;
+  min-height: calc(1.5em * 2);
+}
+
 /* ---------- Card (blueprint) ---------- */
 .card {
   background: #fff;
@@ -230,8 +292,8 @@ img {
   gap: 8px;
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 16px;
-  padding: 12px 22px;
+  font-size: 19px;
+  padding: 15px 28px;
   border-radius: 10px;
   border: 1px solid transparent;
   cursor: pointer;
@@ -283,12 +345,12 @@ img {
   display: inline-block;
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   background: var(--accent-100);
   color: var(--accent-700);
-  padding: 6px 12px;
+  padding: 7px 14px;
   border-radius: 999px;
 }
 .tag-outline {
@@ -307,12 +369,12 @@ img {
 .field label {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 15px;
+  font-size: 17px;
 }
 .input {
   font-family: var(--font-body);
-  font-size: 16px;
-  padding: 11px 14px;
+  font-size: 18px;
+  padding: 13px 16px;
   border: 1px solid var(--line-strong);
   border-radius: 10px;
   background: #fff;
@@ -354,6 +416,38 @@ img {
   flex: none;
   order: 2;
   margin-left: auto;
+  font-size: 20px;
+  padding: 15px 28px;
+}
+.nav-cta.btn-primary,
+.nav-cta-blink {
+  background: #c9a227;
+  color: #1d1f20;
+  border-color: #c9a227;
+}
+.nav-cta.btn-primary:hover {
+  background: #b8911f;
+  color: #1d1f20;
+  border-color: #b8911f;
+}
+.nav-cta-blink {
+  animation: nav-cta-blink 1.6s ease-in-out infinite;
+}
+@keyframes nav-cta-blink {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.45);
+  }
+  50% {
+    opacity: 0.78;
+    box-shadow: 0 0 0 6px rgba(201, 162, 39, 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-cta-blink {
+    animation: none;
+  }
 }
 .nav-links {
   display: flex;
@@ -439,5 +533,96 @@ img {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+/* ---------- Business types marquee ---------- */
+.biz-marquee {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, var(--dark) 0%, #0a4f2e 50%, var(--dark) 100%);
+  border-block: 1px solid rgba(143, 211, 172, 0.22);
+  padding: 14px 0;
+  margin-top: 0;
+}
+.biz-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: biz-marquee 100s linear infinite;
+}
+.biz-marquee:hover .biz-marquee-track {
+  animation-play-state: paused;
+}
+.biz-marquee-list {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.biz-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 28px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(17px, 2.6vw, 22px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  white-space: nowrap;
+}
+.biz-marquee-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.16);
+  flex: none;
+}
+.biz-marquee-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(40px, 8vw, 96px);
+  z-index: 1;
+  pointer-events: none;
+}
+.biz-marquee-fade-left {
+  left: 0;
+  background: linear-gradient(90deg, var(--dark), transparent);
+}
+.biz-marquee-fade-right {
+  right: 0;
+  background: linear-gradient(270deg, var(--dark), transparent);
+}
+@keyframes biz-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .biz-marquee-track {
+    animation: none;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .biz-marquee-list:last-child {
+    display: none;
+  }
+  .biz-marquee-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 8px;
+  }
+  .biz-marquee-item {
+    padding: 4px 16px;
+    font-size: 14px;
   }
 }
