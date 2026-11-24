@@ -200,22 +200,43 @@ img {
   transition: transform 0.2s ease;
 }
 
-/* Pourquoi Djaté — equal card alignment */
-.why-grid > * {
-  min-height: 100%;
+/* Pourquoi Djaté */
+.why-section {
+  background: #fff;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.features-photo {
+  margin-top: 40px;
+  background: var(--dark);
+  border-radius: var(--radius);
+  padding: 10px;
+  overflow: hidden;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.features-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 15%;
+  border-radius: 10px;
+  display: block;
 }
 .why-card {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  width: 100%;
+  gap: 16px;
   height: 100%;
+}
+.why-card .why-card-competitor {
+  margin-top: auto;
 }
 .why-card-top {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  flex: 1;
 }
 .why-card-icons {
   display: flex;
@@ -226,25 +247,21 @@ img {
 .why-card-title {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 26px;
+  font-size: 24px;
   line-height: 1.2;
-  min-height: calc(1.2em * 2);
 }
 .why-card-body {
-  font-size: 19px;
+  font-size: 18px;
   color: var(--neutral-600);
   line-height: 1.5;
-  min-height: calc(1.5em * 3);
 }
 .why-card-competitor {
-  margin-top: auto;
-  padding: 16px;
+  padding: 14px 16px;
   border-radius: 10px;
   background: #e8e8ea;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  min-height: 140px;
 }
 .why-card-competitor-label {
   font-size: 14px;
@@ -255,10 +272,9 @@ img {
   margin-bottom: 2px;
 }
 .why-card-competitor-line {
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.5;
   color: #6b6c6e;
-  min-height: calc(1.5em * 2);
 }
 
 /* ---------- Card (blueprint) ---------- */

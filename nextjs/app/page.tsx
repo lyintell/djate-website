@@ -49,14 +49,14 @@ export default function Home() {
         </section>
 
         {/* BENEFITS */}
-        <section className="surface">
+        <section className="why-section">
           <div className="container" style={{ padding: "64px 24px" }}>
             <SectionHead title="Pourquoi Djaté POS" />
-            <div className="hgrid hc3 why-grid">
+            <div className="hgrid hc3">
               {benefits.map((b, i) => {
                 return (
-                  <Reveal key={b.title} delay={i * 60} style={{ height: "100%", display: "flex" }}>
-                    <div className="hcell why-card">
+                  <Reveal key={b.title} delay={i * 60}>
+                    <div className="hcell why-card" style={{ height: "100%" }}>
                       <div className="why-card-top">
                         <div className="why-card-icons">
                           {b.icons.map((Icon, idx) => (
@@ -98,6 +98,13 @@ export default function Home() {
                 </Reveal>
               );
             })}
+          </div>
+          <div className="features-photo">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/machine-front.jpg"
+              alt="Terminal Djaté POS, face avant avec l'application"
+            />
           </div>
         </section>
 
